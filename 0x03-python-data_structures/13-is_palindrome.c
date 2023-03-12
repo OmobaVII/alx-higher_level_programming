@@ -10,18 +10,24 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *temp, *temp2, *temp3, *ptr;
+	int count = 0;
 
 	ptr = *head;
 	temp2 = NULL;
+	if (head == NULL)
+		return (0);
 	if (*head == NULL)
 		return (1);
 	while (*head != NULL)
 	{
+		count++;
 		temp = (*head)->next;
 		(*head)->next = temp2;
 		temp2 = *head;
 		*head = temp;
-	}	
+	}
+	if (count == 1)
+		return (1);
 	*head = temp2;
 	temp3 = NULL;
 	while (temp2 != NULL)
