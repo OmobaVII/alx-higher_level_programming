@@ -38,7 +38,7 @@ int is_palindrome(listint_t **head)
 		temp2 = temp;
 	}
 	temp2 = temp3;
-	if (ptr == temp3)
+	if (ptr->n == temp3->n)
 	{
 		return (1);
 	}
@@ -46,4 +46,5 @@ int is_palindrome(listint_t **head)
 	{
 		return (0);
 	}
+
 }
