@@ -11,7 +11,8 @@
 int is_palindrome(listint_t **head)
 {
 	listint_t *current, *reversed, *temp;
-	int count, i = 0;
+	int count = 0;
+	int i;
 
 	if (head == NULL)
 		return (0);
