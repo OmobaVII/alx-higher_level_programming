@@ -10,10 +10,9 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *original, *temp2, *ptr;
+	listint_t *original, *temp2, *temp;
 
 	original = *head;
-	ptr = NULL;
 
 	if (head == NULL)
 		return (0);
@@ -21,22 +20,23 @@ int is_palindrome(listint_t **head)
 		return (1);
 	if (*head != NULL && (*head)->next == NULL)
 		return (1);
+	temp2 = NULL;
 	while (original != NULL)
 	{
-		temp2 = malloc(sizeof(listint_t));
-		temp2->n = original->n;
-		temp2->next = ptr;
-		ptr = temp2;
-		original = original->next;
+		temp = original->next;
+		original->next = temp2;
+		temp2 = original;
+		original = temp;
 	}
-	while (*head != NULL && ptr != NULL)
+	original = temp2;
+	while (*head != NULL && temp2 != NULL)
 	{
-		if ((*head)->n != ptr->n)
+		if ((*head)->n != temp2->n)
 		{
 			return (0);
 		}
 		*head = (*head)->next;
-		ptr = ptr->next;
+		temp2 = temp2->next;
 	}
 	return (1);
 }
