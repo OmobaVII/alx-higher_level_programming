@@ -10,7 +10,8 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *original, *temp2, *temp;
+	listint_t *current, *reversed, *temp;
+	int count, i = 0;
 
 	if (head == NULL)
 		return (0);
@@ -18,25 +19,30 @@ int is_palindrome(listint_t **head)
 		return (1);
 	if ((*head)->next == NULL)
 		return (1);
-	original = *head;
-	temp2 = NULL;
-	while (original != NULL)
+	for (current = *head; current != NULL; current = current->next)
 	{
-		temp = original->next;
-		original->next = temp2;
-		temp2 = original;
-		original = temp;
+		count++;
 	}
-	original = temp2;
-	temp2 = NULL;
-	while (*head != NULL && original != NULL)
+	current = *head;
+	reversed = NULL;
+	for (i = 0; i < (count / 2); i++)
 	{
-		if ((*head)->n != original->n)
+		temp = current->next;
+		current->next = reversed;
+		reversed = current;
+		current = temp;
+	}
+	if (count % 2 != 0)
+		current = current->next;
+
+	while (reversed != NULL && current != NULL)
+	{
+		if (reversed->n != current->n)
 		{
 			return (0);
 		}
-		*head = (*head)->next;
-		original = original->next;
+		reversed = reversed->next;
+		current = current->next;
 	}
 	return (1);
 }
