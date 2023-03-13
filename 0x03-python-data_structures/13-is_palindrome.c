@@ -16,7 +16,7 @@ int is_palindrome(listint_t **head)
 	ptr = NULL;
 	temp = original;
 
-	while (temp != NULL)
+	while (original != NULL)
 	{
 		temp2 = malloc(sizeof(listint_t));
 		temp2->n = temp->n;
@@ -24,13 +24,13 @@ int is_palindrome(listint_t **head)
 		ptr = temp2;
 		temp = temp->next;
 	}
-	while (original != NULL && ptr != NULL)
+	while (*head != NULL && ptr != NULL)
 	{
-		if (original->n != ptr->n)
+		if ((*head)->n != ptr->n)
 		{
 			return (0);
 		}
-		original = original->next;
+		*head = (*head)->next;
 		ptr = ptr->next;
 	}
 	return (1);
