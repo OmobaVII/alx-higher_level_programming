@@ -12,14 +12,13 @@ int is_palindrome(listint_t **head)
 {
 	listint_t *original, *temp2, *temp;
 
-	original = *head;
-
 	if (head == NULL)
 		return (0);
 	if (*head == NULL)
 		return (1);
-	if (*head != NULL && (*head)->next == NULL)
+	if ((*head)->next == NULL)
 		return (1);
+	original = *head;
 	temp2 = NULL;
 	while (original != NULL)
 	{
@@ -29,6 +28,7 @@ int is_palindrome(listint_t **head)
 		original = temp;
 	}
 	original = temp2;
+	temp2 = NULL;
 	while (*head != NULL && temp2 != NULL)
 	{
 		if ((*head)->n != temp2->n)
