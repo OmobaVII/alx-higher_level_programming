@@ -6,4 +6,3 @@ def search_replace(my_list, search, replace):
             a = replace
         new_list.append(a)
     return (new_list)
-
