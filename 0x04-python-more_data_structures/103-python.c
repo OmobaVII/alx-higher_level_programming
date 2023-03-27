@@ -1,4 +1,4 @@
-#include <python.h>
+#include <Python.h>
 
 /**
  * print_python_list - a function that prints some basic info about python lists
@@ -10,7 +10,7 @@ void print_python_list(PyObject *p)
 	Py_ssize_t size, allocated, a;
 	const char *typename;
 
-	size = Pylist_Size(p);
+	size = PyList_Size(p);
 	allocated = ((PyListObject *)p)->allocated;
 
 	if (PyList_Check(p))
@@ -36,17 +36,27 @@ void print_python_list(PyObject *p)
  */
 void print_python_bytes(PyObject *p)
 {
-	Py_ssize_t bytes_size;
+	Py_ssize_t bytes_size, i;
+	unsigned int c;
 
-	bytes_size = Pybytes_Size(p);
+	bytes_size = PyBytes_Size(p);
 	if (PyBytes_Check(p))
 	{
 		printf("[.] bytes object info\n");
 		printf("  size: %zu\n", bytes_size);
 		printf("  trying string: %s\n", PyBytes_AS_STRING(p));
-		for (i = 0; i < bytes_size; i++)
+		if (bytes_size < 10)
+			printf("  first %zu bytes: ", bytes_size + 1);
+		else
+			printf("  first %d bytes: ", 10);
+		for (i = 0; i <= bytes_size; i++)
 		{
-			printf("  first %zu bytes: %02x ", bytes_size + 1, PyBytes_AS_STRING(p)[i]);
+			if (i == 11)
+			{
+				break;
+			}
+			c = PyBytes_AS_STRING(p)[i] % 100;
+			printf("%02x ", c);
 		}
 		printf("\n");
 	}
@@ -55,4 +65,3 @@ void print_python_bytes(PyObject *p)
 		printf("[ERROR] Invalid Bytes Object\n");
 	}
 }
-
