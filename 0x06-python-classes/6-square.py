@@ -11,8 +11,8 @@ class Square:
     """
 
     def __init__(self, size=0, position=(0, 0)):
-        self.size = size
-        self.position = position
+        self.__size = size
+        self.__position = position
 
     """
     gets the property size
@@ -44,12 +44,12 @@ class Square:
     """
     @position.setter
     def position(self, value):
-        if type(value) != tuple or type(value[0]) != int:
+        if type(value) != tuple:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if type(value[0]) != int:
             raise TypeError("position must be a tuple of 2 positive integers")
         if type(value[1]) != int:
             raise TypeError("position must be a tuple of 2 positive integers")
-        if value < 0:
-            raise ValueError("size must be >= 0")
         self.__position = value
 
     """
