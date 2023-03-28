@@ -47,25 +47,25 @@ class Square:
                 print()
             if self.__size == 0:
                 print()
-    def __value__(self):
-        a = 0
-        b = 0
-        pos = list(self.__position)
-        value = ""
-        if self.__size == 0:
-            return value
-        while b < self.__size:
-            while pos[1] > 0:
-                value += "\n"
-                pos[1] -= 1
-            while pos[0] > 0:
-                value += " "
-                pos[0] -= 1
-            while a < self.__size:
-                value += "#"
-                a += 1
+        def __str__(self):
             a = 0
-            b += 1
-            pos[0] = self.__position[0]
-            value += "\n"
-        return value
+            b = 0
+            pos = list(self.__position)
+            value = ""
+            if self.__size == 0:
+                return value
+            while b < self.__size:
+                while pos[1] > 0:
+                    value += "\n"
+                    pos[1] -= 1
+                while pos[0] > 0:
+                    value += " "
+                    pos[0] -= 1
+                while a < self.__size:
+                    value += "#"
+                    a += 1
+                a = 0
+                b += 1
+                pos[0] = self.__position[0]
+                value += "\n"
+            return value
