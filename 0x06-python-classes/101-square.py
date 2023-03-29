@@ -28,25 +28,17 @@ class Square:
     def area(self):
         return (self.__size ** 2)
     def my_print(self):
-        a = 0
-        b = 0
-        position = list(self.__position)
-        while b < self.__size:
-            while position[1] > 0:
-                print()
-                position[1] -= 1
-            while position[0] > 0:
-                print(" ", end="")
-                position[0] -= 1
-            while a < self.__size:
-                print("#", end="")
-                a += 1
-            a = 0
-            b += 1
-            position[0] = self._position[0]
-            print()
         if self.__size == 0:
             print()
+        else:
+            for row in range(self._position[1]):
+                print()
+            for i in range(self.__size):
+                for col in range(self.__position[0]):
+                    print(" ", end="")
+                for j in range (self.__size):
+                    print("#", end="")
+                print()
     def __str__(self):
         a = 0
         b = 0
@@ -67,5 +59,6 @@ class Square:
             a = 0
             b += 1
             pos[0] = self.__position[0]
-            s += "\n"
+            if b < self.__size:
+                s += "\n"
         return s
