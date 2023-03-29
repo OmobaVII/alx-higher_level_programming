@@ -57,7 +57,7 @@ class SinglyLinkedList:
     """
     returns the nodes in the specified format
     """
-    def __print__(self):
+    def __str__(self):
         value = ""
         current = self.head
         while current is not None:
