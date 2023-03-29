@@ -38,32 +38,38 @@ class Square:
         returns the area of the square
         """
         return (self.__size ** 2)
+
     def __eq__(self, another):
         """
         because of the == comparism
         """
         return self.__size == another.size
+
     def __ne__(self, another):
         """
         because of the != comparism
         """
         return self.__size != another.size
+
     def __gt__(self, another):
         """
         because of the > comparism
         """
         return self.__size > another.size
+
     def __ge__(self, another):
         """
         because of the greater than or equal
         comparism
         """
         return self.__size >= another.size
+
     def __lt__(self, another):
         """
         because of the less than comparism
         """
         return self.__size < another.size
+
     def __le__(self, another):
         """
         because of the less than or equal
