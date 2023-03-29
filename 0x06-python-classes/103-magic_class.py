@@ -24,9 +24,7 @@ class MagicClass:
     def radius(self, value):
         if type(value) is not int and type(value) is not float:
             raise TypeError('radius must be a number')
-        if value is None:
-            raise TypeError('radius must be a number')
-        self.__radius = value
+        self.__radius = valuei
 
     def area(self):
         return (self.__radius ** 2) * math.pi
