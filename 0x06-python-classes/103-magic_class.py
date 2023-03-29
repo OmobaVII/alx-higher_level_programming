@@ -14,7 +14,6 @@ class MagicClass:
     definition of the class
     """
     def __init__(self, radius):
-        self.radius = 0
 
     @property
     def radius(self):
