@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-__import__('100-singly_linked_list')
+Node = __import__('100-singly_linked_list').Node
 
 n1 = Node(3)
 print(n1.data)
@@ -15,7 +15,6 @@ try:
     n4 = Node("4")
 except Exception as e:
     print(e)
-
 try:
     n2.next_node = "Node"
 except Exception as e:
