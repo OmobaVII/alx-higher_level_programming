@@ -42,7 +42,7 @@ class Node:
         """
         @next_node.setter
         def next_node(self, value):
-            if type(value) is not None or type(value) is not Node():
+            if value is not None and type(value) is not Node():
                 raise TypeError("next_node must be a Node object")
             self.__next_node = value
 
@@ -52,14 +52,14 @@ class SinglyLinkedList:
     the class definition
     """
     def __init__(self):
-        self.head = None
+        self.__head = None
 
     """
     returns the nodes in the specified format
     """
     def __str__(self):
         value = ""
-        current = self.head
+        current = self.__head
         while current is not None:
             value += (str(current.data))
             current = current.next_node
@@ -72,15 +72,18 @@ class SinglyLinkedList:
     """
     def sorted_insert(self, value):
         newnode = Node(value)
-        if self.head is None:
-            self.head = newnode
-        elif self.head.data >= value:
-            newnode.next_node = self.head
-            self.head = newnode
+        if self.__head is None:
+            self.__head = newnode
+            return
+        elif self.__head.data >= value:
+            newnode.next_node = self.__head
+            self.__head = newnode
+            return
         else:
-            current = self.head
+            current = self.__head
             while current.next_node is not None\
                     and current.next_node.data < value:
                 current = current.next_node
             newnode.next_node = current.next_node
             current.next_node = newnode
+            return
