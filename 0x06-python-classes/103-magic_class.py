@@ -14,6 +14,9 @@ class MagicClass:
     definition of the class
     """
     def __init__(self, radius):
+        if value is None:
+            raise TypeError('radius must be a number')
+        self.radius = radius
 
     @property
     def radius(self):
