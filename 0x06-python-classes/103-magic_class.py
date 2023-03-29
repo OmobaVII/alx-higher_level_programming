@@ -13,7 +13,7 @@ class MagicClass:
     """
     definition of the class
     """
-    def __init__(self, radius):
+    def __init__(self, radius=0):
         self.radius = radius
 
     @property
