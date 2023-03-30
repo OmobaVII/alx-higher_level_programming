@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+
+============================
+How to use 0-add_integer.py
+============================
+
+This library is very simple, since it only has one function that is called
+``add_integer()``.
+
+Numbers
+=======
+``add_integer()`` returns the sum of its arguments. For positive and negative numbers,
+that value is equivalent to using the ``+`` operator.
+
+::
+    >>> add_integer = __import__('0-add_integer').add_integer
+    >>> add_integer(5, 4)
+    9
+
+    >>> add_integer(-3, 7)
+    4
+
+It works also for floating-point values but cast them to integers before summing.
+
+::
+    >>> add_integer(5.0, 4)
+    9
+
+Non-Numbers
+===========
+
+Because ``+`` is not defined on data types other than integers and floats,
+``add_integer()`` does not work if one of the arguments is a string, a list, a dict, or a tuple.
+
+::
+    >>> add_integer('a', 4)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+
+    >>> add_integer(5, 'b')
+    Traceback (most recent call last):
+        ...
+    TypeError: b must be an integer
+
+    >>> add_integer(['A', 'B', 'C'], 4)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+    >>> add_integer((3, 4), 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: a must be an integer
+
+it also works for only one value given and assumes the second value to be 98.
+
+::
+    >>> add_integer(5)
+    103
