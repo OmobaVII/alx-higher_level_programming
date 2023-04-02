@@ -58,3 +58,16 @@ it also works for only one value given and assumes the second value to be 98.
 ::
     >>> add_integer(5)
     103
+
+provides errors for exceptional cases
+
+::
+    >>> add_integer(3, 4, 5)
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() takes from 1 to 2 positional arguments but 3 were given
+
+    >>> add_integer()
+    Traceback (most recent call last):
+        ...
+    TypeError: add_integer() missing 1 required positional argument: 'a'
