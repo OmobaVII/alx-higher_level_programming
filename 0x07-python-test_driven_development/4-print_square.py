@@ -4,6 +4,8 @@ This is the module "4-print_square"
 This module take in one function, print_square()
 This function takes one parameter used as the size of a square to print using #
 """
+
+
 def print_square(size):
     if type(size) is not int:
         raise TypeError("size must be an integer")

@@ -4,6 +4,8 @@ This is the "3-say_my_name" module.
 This module supplies one function, say_my_name()
 This function take in two strings and returns the joined strings
 """
+
+
 def say_my_name(first_name, last_name=""):
     """
     Returns a combination of first_name and last_name

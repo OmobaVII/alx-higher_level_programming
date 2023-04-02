@@ -1,15 +1,11 @@
 #!/usr/bin/python3
+import numpy as np
 """
-the 100-matrix_mul module
-this module provides one function, matrix_mul.
-this function takes two matrix as arguments and return thier product
+this is the "101-lazy_matrix_mul" module
+this module provide one function, lazy_matrix_mul()
+this function takes in two matrix as parameter and returns thier product
 """
-
-
-def matrix_mul(m_a, m_b):
-    """
-    returns the product of matrix m_a and matrix m_b
-    """
+def lazy_matrix_mul(m_a, m_b):
     if type(m_a) is not list:
         raise TypeError("m_a must be a list")
     if type(m_b) is not list:
@@ -31,7 +27,7 @@ def matrix_mul(m_a, m_b):
     for list_b in m_b:
         for j in list_b:
             if type(j) not in [int, float]:
-                raise TypeError("m_b should contain only integers or floats")
+                raise TypeError("m_a should contain only integers or floats")
     col_a = len(m_a[0])
     for items in m_a:
         if len(items) != col_a:
@@ -39,14 +35,11 @@ def matrix_mul(m_a, m_b):
     col_b = len(m_b[0])
     for item in m_b:
         if len(item) != col_b:
-            raise TypeError("each row of m_a must be of the same size")
-    if len(m_a[0]) != len(m_b) and len(m_b[0]) != len(m_a):
-        raise ValueError("m_a and m_b can't be multiplied")
+            raise TypeError("each row of m_b must be of the same size")
     row_a = len(m_a)
     row_b = len(m_b)
-    new_matrix = [[0 for a in range(col_b)] for b in range(row_a)]
-    for x in range(row_a):
-        for y in range(col_b):
-            for z in range(col_a):
-                new_matrix[x][y] += m_a[x][z] * m_b[z][y]
+    if row_a != col_b and row_b != col_a:
+        raise ValueError("m_a and m_b can't be multiplied")
+    new_matrix = [[]]
+    new_matrix = np.dot(m_a, m_b)
     return new_matrix

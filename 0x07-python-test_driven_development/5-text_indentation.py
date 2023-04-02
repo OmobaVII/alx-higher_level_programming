@@ -2,8 +2,11 @@
 """
 This is the "5-text_indentation" module.
 This module defines one function, text_indentation().
-This function take one parameter as a string of text and prints the text with 2 lines after each "." or "?"
+This function take one parameter as a string of text and
+prints the text with 2 lines after each "." or "?"
 """
+
+
 def text_indentation(text):
     if type(text) is not str:
         raise TypeError("text must be a string")
