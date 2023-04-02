@@ -27,7 +27,7 @@ def lazy_matrix_mul(m_a, m_b):
     for list_b in m_b:
         for j in list_b:
             if type(j) not in [int, float]:
-                raise TypeError("m_a should contain only integers or floats")
+                raise TypeError("m_b should contain only integers or floats")
     col_a = len(m_a[0])
     for items in m_a:
         if len(items) != col_a:

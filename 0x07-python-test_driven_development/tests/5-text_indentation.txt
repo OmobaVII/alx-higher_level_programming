@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+
+================================
+How to use 5-text_indentation.py
+================================
+
+This library is simple because it has only one function
+``text_indentation()``
+
+``text_indentation`` returns a new text which is formatted to
+print 2 new lines after the characters `. , ? :`
+
+::
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("This is a boy. That is a girl.")
+    This is a boy.
+    <BLANKLINE>
+    That is a girl.
+    <BLANKLINE>
+
+cases caught by the code
+::
+    >>> text_indentation(62)
+    Traceback (most recent call last):
+        ...
+    TypeError: text must be a string
+
+cases not caught by the code
+::
+    >>> text_indentation()
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+    >>> text_indentation("That is a boy.", "This is a girl")
+    Traceback (most recent call last):
+        ...
+    TypeError: text_indentation() takes 1 positional argument but 2 were given

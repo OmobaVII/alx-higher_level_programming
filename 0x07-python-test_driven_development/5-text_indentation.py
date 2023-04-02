@@ -8,8 +8,12 @@ prints the text with 2 lines after each "." or "?"
 
 
 def text_indentation(text):
-    if type(text) is not str:
+    """
+    Returns the formatted text
+    """
+    if type(text) not in [str]:
         raise TypeError("text must be a string")
+
     text = text.strip()
     new_text = ""
     for character in text:
