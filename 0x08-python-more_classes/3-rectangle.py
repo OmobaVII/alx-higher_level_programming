@@ -77,4 +77,3 @@ class Rectangle:
             if b < self.__height:
                 s += "\n"
         return s
-
