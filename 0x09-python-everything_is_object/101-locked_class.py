@@ -6,8 +6,11 @@ it provides the class LockedClass
 
 
 class LockedClass:
+    """defines a class that prevents other classes aside first_name"""
     __slots__ = ("first_name",)
+
     def __setattr__(self, name, value):
         if not hasattr(self, name) and name != "first_name":
-            raise AttributeError(f"'LockedClass' object has no attribute '{name}'")
+            message = f"'LockedClass' object has no attribute '{name}'"
+            raise AttributeError(message)
         super().__setattr__(name, value)
