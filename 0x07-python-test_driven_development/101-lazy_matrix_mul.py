@@ -49,7 +49,7 @@ def lazy_matrix_mul(m_a, m_b):
     msg = ("shapes ({:d},{:d}) and ({:d},{:d}) not aligned: "
            "{:d} (dim {:d}) != {:d} (dim {:d})"
            .format(col_b, row_a, col_b, col_b, row_a, row_b, col_b, row_a))
-    if col_a != row_b:
+    if col_a != row_b and col_b != row_a:
         raise ValueError(msg)
     new_matrix = [[]]
     new_matrix = np.matmul(m_a, m_b)
