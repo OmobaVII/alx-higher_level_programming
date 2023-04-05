@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+imports the numpy module
+"""
 import numpy as np
 """
 this is the "101-lazy_matrix_mul" module
@@ -27,11 +30,17 @@ def lazy_matrix_mul(m_a, m_b):
         for j in list_b:
             if type(j) not in [int, float]:
                 raise TypeError("invalid data type for einsum")
-    col_a = len(m_a[0])
+    if len(m_a) == 0:
+        col_a = 0
+    else:
+        col_a = len(m_a[0])
     for items in m_a:
         if len(items) != col_a:
             raise TypeError("setting an array element with a sequence.")
-    col_b = len(m_b[0])
+    if len(m_b) == 0:
+        col_b = 0
+    else:
+        col_b = len(m_b[0])
     for item in m_b:
         if len(item) != col_b:
             raise TypeError("setting an array element with a sequence.")
