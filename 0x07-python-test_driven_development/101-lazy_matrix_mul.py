@@ -46,11 +46,11 @@ def lazy_matrix_mul(m_a, m_b):
             raise TypeError("setting an array element with a sequence.")
     row_a = len(m_a)
     row_b = len(m_b)
-    msg = "shapes ({:d},{:d}) and ({:d},{:d}) not aligned: {:d} (dim {:d})\
-           != {:d} (dim {:d})".format(col_b, row_a, col_b, col_b, row_a,
-                                      row_b, col_b, row_a)
     if row_a != col_b and row_b != col_a:
-        raise ValueError(msg)
+        raise ValueError("shapes ({:d},{:d}) and ({:d},{:d})\
+                         not aligned: {:d} (dim {:d}) != {:d} (dim {:d})"\
+                         .format(col_b, row_a, col_b, col_b, row_a, row_b,
+                         col_b, row_a))
     new_matrix = [[]]
     new_matrix = np.dot(m_a, m_b)
     return new_matrix
