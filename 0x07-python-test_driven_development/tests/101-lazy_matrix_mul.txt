@@ -1,15 +1,15 @@
 #!/usr/bin/python3
 
 ============================
-How to use 100-matrix_mul.py
+How to use 101-lazy_matrix_mul.py
 ============================
 
 This library is very simple, since it only has one function that is called
-``100-matrix_mul()``.
+``100-lazy_matrix_mul()``.
 
 normal cases
 ============
-`` the 100-matrix_mul()`` returns the multiplication of its arguments
+`` the lazy_matrix_mul()`` returns the multiplication of its arguments
 which must be 2 matrix of lenght of rows of one equal to lenght of
 columns of the other.
 
@@ -29,12 +29,12 @@ cases the code took care of
     >>> lazy_matrix_mul(2, 3)
     Traceback (most recent call last):
         ...
-    TypeError: m_a must be a list
+    TypeError: Scalar operands are not allowed, use '*' instead
 
     >>> lazy_matrix_mul([[1, 2], [3, 4]], 4)
     Traceback (most recent call last):
         ...
-    TypeError: m_b must be a list
+    TypeError: Scalar operands are not allowed, use '*' instead
 
     >>> lazy_matrix_mul([3, 2], [[1, 3], [2, 4]])
     Traceback (most recent call last):
@@ -61,29 +61,29 @@ cases the code took care of
     >>> lazy_matrix_mul([[1, 2], [3, "a"]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
         ...
-    TypeError: m_a should contain only integers or floats
+    TypeError: invalid data type for einsum
 
     >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, "a"]])
     Traceback (most recent call last):
         ...
-    TypeError: m_b should contain only integers or floats
+    TypeError: invalid data type for einsum
 
     >>> lazy_matrix_mul([[1, 2], [1, 2, 3]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
         ...
-    TypeError: each row of m_a must be of the same size
+    TypeError: setting an array element with a sequence.
 
     >>> lazy_matrix_mul([[1, 2], [2, 4]], [[1, 2, 3], [2, 4]])
     Traceback (most recent call last):
         ...
-    TypeError: each row of m_b must be of the same size
+    TypeError: setting an array element with a sequence.
 
     >>> lazy_matrix_mul([[1, 2, 3], [3, 4, 5], [1, 3, 4]], [[1, 3], [2, 4]])
     Traceback (most recent call last):
         ...
-    ValueError: m_a and m_b can't be multiplied
+    ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 2) != 2 (dim 4)
 
-'Cases that the code did not take care of
+Cases that the code did not take care of
 =========================================
 
 ::
