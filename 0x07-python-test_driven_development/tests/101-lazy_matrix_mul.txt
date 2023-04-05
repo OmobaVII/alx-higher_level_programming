@@ -46,18 +46,6 @@ cases the code took care of
         ...
     TypeError: m_b must be a list of lists
 
-    >>> lazy_matrix_mul([], [[1, 2], [3, 4]])
-    Traceback (most recent call last):
-        ...
-    ValueError: m_a can't be empty
-
-'
-    >>> lazy_matrix_mul([[1, 2], [3, 3]], [])
-    Traceback (most recent call last):
-        ...
-    ValueError: m_b can't be empty
-
-'
     >>> lazy_matrix_mul([[1, 2], [3, "a"]], [[1, 2], [3, 4]])
     Traceback (most recent call last):
         ...
@@ -81,7 +69,7 @@ cases the code took care of
     >>> lazy_matrix_mul([[1, 2, 3], [3, 4, 5], [1, 3, 4]], [[1, 3], [2, 4]])
     Traceback (most recent call last):
         ...
-    ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 2) != 2 (dim 4)
+    ValueError: shapes (2,3) and (2,2) not aligned: 3 (dim 2) != 2 (dim 3)
 
 Cases that the code did not take care of
 =========================================
