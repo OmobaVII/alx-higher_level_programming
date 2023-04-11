@@ -9,6 +9,11 @@ MyList
 class MyList(list):
     """defines the class"""
 
+    def __init__(self):
+        """initializes the list"""
+        super().__init__()
+
     def print_sorted(self):
         """a public instance attribute"""
-        print(sorted(self))
+        sorted_list = sorted(self)
+        print(sorted_list)
