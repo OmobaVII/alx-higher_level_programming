@@ -1,0 +1,38 @@
+#!/usr/bin/python3
+
+=========================
+How to use `1-my_list.py`
+=========================
+
+This library has only one class which is called
+MyList wish has a public instance method called
+print_sorted(self)
+
+the print_sorted() instance method prints the list in a sorted form
+
+::
+    >>> MyList = __import__('1-my_list').MyList
+    >>> a = MyList()
+    >>> a.append(4)
+    >>> a.append(9)
+    >>> a.append(76)
+    >>> a.append(12)
+    >>> a.print_sorted()
+    [4, 9, 12, 76]
+
+::
+    >>> b = [-1, 9, -7]
+    >>> MyList.print_sorted(b)
+    [-7, -1, 9]
+
+::
+    >>> b = [1, 8, 9.3, 6]
+    >>> MyList.print_sorted(b)
+    [1, 6, 8, 9.3]
+
+::
+    >>> b = [6, 7, 'a', 9]
+    >>> MyList.print_sorted(b)
+    Traceback (most recent call last):
+        ...
+    TypeError: '<' not supported between instances of 'str' and 'int'
