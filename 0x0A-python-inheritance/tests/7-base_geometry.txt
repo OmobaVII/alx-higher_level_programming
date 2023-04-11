@@ -1,0 +1,36 @@
+#!/usr/bin/python3
+
+============================
+How to use `7-base_geometry`
+============================
+
+This library has one class which is callsed
+BaseGeometry which has two public instance methods
+
+TestCases
+=========
+
+::
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> a = BaseGeometry()
+    >>> a.integer_validator("my_int", 12)
+    >>> a.integer_validator("omoba", "John")
+    Traceback (most recent call last):
+        ...
+    TypeError: omoba must be an integer
+    >>> a.integer_validator("Sanni", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: Sanni must be greater than 0
+    >>> a.integer_validator("Boy", -9)
+    Traceback (most recent call last):
+        ...
+    ValueError: Boy must be greater than 0
+    >>> a.integer_validator("Boy")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 positional argument 'value'
+    >>> a.integer_validator("Boy", 0, "Girl")
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator90 takes 2 positional arguments but 3 were given
