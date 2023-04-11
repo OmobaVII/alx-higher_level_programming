@@ -19,6 +19,11 @@ the print_sorted() instance method prints the list in a sorted form
     >>> a.append(12)
     >>> a.print_sorted()
     [4, 9, 12, 76]
+    >>> print(a)
+    [4, 9, 76, 12]
+    >>> id(a) is not id(a.print_sorted())
+    [4, 9, 12, 76]
+    True
 
 ::
     >>> b = [-1, 9, -7]
@@ -50,5 +55,7 @@ the print_sorted() instance method prints the list in a sorted form
 
     >>> issubclass(MyList, list)
     True
-    >>> isinstance(MyList, list)
-    False
+    >>> isinstance(MyList, object)
+    True
+    >>> type(MyList())
+    <class '1-my_list.MyList'>
