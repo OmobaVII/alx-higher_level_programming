@@ -29,8 +29,13 @@ TestCases
     >>> a.integer_validator("Boy")
     Traceback (most recent call last):
         ...
-    TypeError: integer_validator() missing 1 positional argument 'value'
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
     >>> a.integer_validator("Boy", 0, "Girl")
     Traceback (most recent call last):
         ...
-    TypeError: integer_validator90 takes 2 positional arguments but 3 were given
+    TypeError: integer_validator() takes 3 positional arguments but 4 were given
+
+    >>> a.integer_validator(None)
+    Traceback (most recent call last):
+        ...
+    TypeError: integer_validator() missing 1 required positional argument: 'value'
