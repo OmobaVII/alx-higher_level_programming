@@ -9,9 +9,11 @@ pascal_triangle()
 def pascal_triangle(n):
     """a function that returns the pascal triangle of n"""
 
-    s = []
-    if n <= 0:
-        return s
-    for num in range(n):
-        s.append(str(11 ** num))
-    return s
+    triangle = []
+    for a in range(n):
+        row = [1] * (a + 1)
+        for b in range(1, a):
+            row[b] = triangle[a - 1][b - 1] + triangle[a - 1][b]
+        triangle.append(row)
+
+    return triangle
