@@ -22,4 +22,3 @@ except Exception:
     file_content = []
 
 save_to_json_file(file_content + argv[1:], myFile)
-
