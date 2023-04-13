@@ -41,7 +41,7 @@ if __name__ == "__main__":
                         stat_codes[line[-2]] = 1
                     else:
                         stat_codes[line[-2]] += 1
-            except (IndexError, ValueError):
+            except (IndexError):
                 pass
 
         print_the_stats(size, stat_codes)
