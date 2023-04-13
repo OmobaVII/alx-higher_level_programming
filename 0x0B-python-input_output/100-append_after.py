@@ -7,6 +7,8 @@ append_after()
 
 
 def append_after(filename="", search_string="", new_string=""):
+    """searchs for a string and inserts a newstring after the line"""
+
     with open(filename, "r") as myFile:
         lines = myFile.readlines()
 
