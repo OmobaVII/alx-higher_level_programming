@@ -32,7 +32,7 @@ if __name__ == "__main__":
 
             try:
                 size += int(line[-1])
-            except (ValueError, IndexError):
+            except IndexError:
                 pass
 
             try:
@@ -41,11 +41,11 @@ if __name__ == "__main__":
                         stat_codes[line[-2]] = 1
                     else:
                         stat_codes[line[-2]] += 1
-            except (IndexError):
+            except IndexError:
                 pass
 
         print_the_stats(size, stat_codes)
 
     except KeyboardInterrupt:
         print_the_stats(size, stat_codes)
-        raise
+        pass
