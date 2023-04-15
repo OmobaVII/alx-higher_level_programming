@@ -81,6 +81,7 @@ class Rectangle(Base):
         return self.__width * self.__height
 
     def display(self):
+        """prints the rectangle"""
         a = 0
         b = 0
         while a < self.__height:
@@ -91,3 +92,8 @@ class Rectangle(Base):
             b = 0
             print()
 
+    def __str__(self):
+        """returns a format of rectanlge, id x, y and width, height"""
+        ms = "[Rectangle] ({:d}) {:d}/{:d} - {:d}/{:d}"
+        s = ms.format(self.id, self.__x, self.__y, self.__width, self.__height)
+        return s
