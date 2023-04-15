@@ -18,3 +18,14 @@ class Base:
             self.id = Base.__nb_objects
         else:
             self.id = id
+
+    def to_json_string(list_dictionaries):
+        """returns a string representation"""
+        import json
+        """needed to returns json representation"""
+        s = []
+        if list_dictionaries is None:
+            return s
+        if len(list_dictionaries) == 0:
+            return s
+        return json.dumps(list_dictionaries)
