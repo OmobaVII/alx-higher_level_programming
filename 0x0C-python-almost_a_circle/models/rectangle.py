@@ -84,12 +84,21 @@ class Rectangle(Base):
         """prints the rectangle"""
         a = 0
         b = 0
+        x = self.__x
+        y = self.__y
         while a < self.__height:
             while b < self.__width:
+                while y > 0:
+                    print()
+                    y -= 1
+                while x > 0:
+                    print(" ", end="")
+                    x -= 1    
                 print("#", end="")
                 b += 1
             a += 1
             b = 0
+            x = self.__x
             print()
 
     def __str__(self):
