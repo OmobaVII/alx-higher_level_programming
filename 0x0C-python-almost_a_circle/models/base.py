@@ -6,6 +6,10 @@ Base
 """
 
 
+import json
+"""needed for the JSON implementations"""
+
+
 class Base:
     """the definition of the class"""
 
@@ -22,8 +26,7 @@ class Base:
     @staticmethod
     def to_json_string(list_dictionaries):
         """returns a string representation"""
-        import json
-        """needed to returns json representation"""
+
         s = "[]"
         if list_dictionaries is None:
             return s
@@ -34,10 +37,15 @@ class Base:
     @classmethod
     def save_to_file(cls, list_objs):
         """writes json to file"""
-        import json
+
         filename = cls.__name__+".json"
         if list_objs is None:
             list_objs = []
         with open(filename, "w", encoding="utf8") as myFile:
             myFile.write(cls.to_json_string([obj.to_dictionary()
                          for obj in list_objs]))
+
+    @staticmethod
+    def from_json_string(json_string):
+        """returns the string from JSON"""
+        return json.loads(json_string)
