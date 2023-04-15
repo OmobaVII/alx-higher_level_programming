@@ -46,3 +46,12 @@ class Square(Rectangle):
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
+
+    def to_dictionary(self):
+        """returns a dictionary representation"""
+        s = {}
+        s['id'] = self.id
+        s['size'] = self.width
+        s['x'] = self.x
+        s['y'] = self.y
+        return s
