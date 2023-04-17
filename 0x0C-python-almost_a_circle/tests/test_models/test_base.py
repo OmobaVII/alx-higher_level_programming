@@ -2,7 +2,7 @@
 """
 this is the Unittest for the class Base
 """
-
+import pep8
 import csv
 import os
 import unittest
@@ -14,6 +14,17 @@ Base = base.Base
 Rectangle = rectangle.Rectangle
 Square = square.Square
 """imports needed for the tests"""
+
+
+class Testpep8(unittest.TestCase):
+    """tests pep8"""
+    def test_Base_pep8(self):
+        """pep8 test"""
+        style = pep8.StyleGuide(quiet=False)
+        file = ["models/base.py", "tests/test_models/test_base.py"]
+        err = 0
+        err += style.check_files(file).total_errors
+        self.assertEqual(err, 0, "Need to fix Pep8")
 
 
 class TestBase(unittest.TestCase):
@@ -29,6 +40,7 @@ class TestBase(unittest.TestCase):
             pass
 
     def test_id(self):
+        """test of the id"""
         self.assertTrue(Base(23), self.id == 23)
         self.assertTrue(Base(-29), self.id == -29)
         self.assertTrue(Base(752), self.id == 752)
@@ -41,6 +53,7 @@ class TestBase(unittest.TestCase):
             Base(4, 6, 29)
 
     def test_increment_id(self):
+        """test if the id increments"""
         self.assertTrue(Base(), self.id == 1)
         self.assertTrue(Base(), self.id == 2)
         self.assertTrue(Base(), self.id == 3)
@@ -56,6 +69,7 @@ class TestBase(unittest.TestCase):
         self.assertEqual(type(Base(4)), Base)
 
     def test_to_json_string(self):
+        """test if it converts json to string"""
         dict1 = {"id": 5, "width": 3, "height": 5, "x": 1, "y": 3}
         dict2 = {"id": 2, "width": 3, "height": 6, "x": 2, "y": 1}
         rdstr = Base.to_json_string([dict1, dict2])
