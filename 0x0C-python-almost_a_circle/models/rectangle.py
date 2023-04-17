@@ -4,8 +4,23 @@ from models.base import Base
 
 
 class Rectangle(Base):
-    """defines the class Rectangle"""
-
+    """
+    defines the class Rectangle; inherits from class Base
+    Inherited Attributes:
+        id
+    Class Attributes:
+        __width         __height
+        __x             __y
+    Methods:
+        __init__(self, width, height, x=0, y=0, id=None):
+        update(self, *args, **kwargs)
+        width(self)     width(self, value)
+        x(self)         x(self, value)
+        height(self)    height(self, value)
+        y(self)         y(self, value)
+        area(self)      display(self)
+        __str__         to_dictionary(self)
+    """
     def __init__(self, width, height, x=0, y=0, id=None):
         """intializes the class with these parameters"""
         super().__init__(id)
