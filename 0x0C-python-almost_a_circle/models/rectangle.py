@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """
-this is the `rectangle` module
+This is the module "models/rectangle"
+Module contains class Rectangle
 
 it inherits Base in the `base` module
 this module defines a class Rectangle
@@ -13,7 +14,8 @@ Updates attributes with args
 Returns a dictionary representation of attributes
 """
 
-from models.base import Base
+
+from base import Base
 """this imports the base module"""
 
 
