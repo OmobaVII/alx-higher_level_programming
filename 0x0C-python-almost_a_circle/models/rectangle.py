@@ -15,8 +15,7 @@ Returns a dictionary representation of attributes
 """
 
 
-from base import Base
-"""this imports the base module"""
+from models.base import Base
 
 
 class Rectangle(Base):
