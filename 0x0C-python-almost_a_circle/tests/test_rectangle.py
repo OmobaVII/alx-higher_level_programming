@@ -57,6 +57,7 @@ class TestRectangle(unittest.TestCase):
             Rectangle(3, 7, -1, 3, 5)
         with self.assertRaisesRegex(ValueError, "y must be >= 0"):
             Rectangle(3, 7, 4, -3, 5)
+
     def test_private(self):
         with self.assertRaises(AttributeError):
             print(Rectangle.__width)

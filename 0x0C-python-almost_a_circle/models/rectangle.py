@@ -93,7 +93,7 @@ class Rectangle(Base):
                     y -= 1
                 while x > 0:
                     print(" ", end="")
-                    x -= 1    
+                    x -= 1
                 print("#", end="")
                 b += 1
             a += 1

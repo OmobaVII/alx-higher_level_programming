@@ -7,9 +7,6 @@ Base
 
 
 import json
-"""needed for the JSON implementations"""
-
-
 import csv
 """needed for the csv files"""
 
@@ -42,7 +39,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """writes json to file"""
 
-        filename = cls.__name__ +".json"
+        filename = cls.__name__ + ".json"
         if list_objs is None:
             list_objs = []
         with open(filename, "w", encoding="utf8") as myFile:
@@ -92,10 +89,11 @@ class Base:
             list_objs = []
         with open(filename, "w", newline="") as myFile:
             for obj in list_objs:
+                wr = csv.writer(myFile)
                 if cls.__name__ == "Rectangle":
-                    csv.writer(myFile).writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
+                    wr.writerow([obj.id, obj.width, obj.height, obj.x, obj.y])
                 elif cls.__name__ == "Square":
-                    csv.writer(myFile).writerow([obj.id, obj.size, obj.x, obj.y])
+                    wr.writerow([obj.id, obj.size, obj.x, obj.y])
 
     @classmethod
     def load_from_file_csv(cls):
