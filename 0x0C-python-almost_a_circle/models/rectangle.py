@@ -5,9 +5,7 @@ this is the `rectangle` module
 this module inherits from the base module
 it inherits Base
 """
-
-
-from models.base import Base
+from base import Base
 
 
 class Rectangle(Base):
