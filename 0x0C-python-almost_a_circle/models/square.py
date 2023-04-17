@@ -2,7 +2,14 @@
 """
 this is the square module
 this module define a class
+
 Square which inherits from Rectangle
+initializes superclass id, width as size or height as size
+Contains public attribute size
+displays the square using #
+prints [Square] (id) x/y - size
+Updates attributes args and kwargs
+Returns dictionary representation of attributes
 """
 
 
