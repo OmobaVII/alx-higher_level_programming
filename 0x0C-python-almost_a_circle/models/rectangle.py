@@ -2,9 +2,9 @@
 """
 this is the `rectangle` module
 
-it inherits from Base in the `base` module
+it inherits Base in the `base` module
 this module defines a class Rectangle
-Inherits from class BAse
+Inherits  class BAse
 Initializes superclass id
 Contains private attributes, widht, height, x and y
 Displays method uses #
