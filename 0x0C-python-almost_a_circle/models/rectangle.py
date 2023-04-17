@@ -11,10 +11,7 @@ Contains private attributes, widht, height, x and y
 Displays method uses #
 Str method uses [Rectangle] (id) x/y - width/height
 Updates attributes with args
-Returns a dictionary representation of attributes
-"""
-
-
+Returns a dictionary representation of attributes"""
 from models.base import Base
 
 
