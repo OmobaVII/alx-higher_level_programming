@@ -42,7 +42,7 @@ class Base:
     def save_to_file(cls, list_objs):
         """writes json to file"""
 
-        filename = cls.__name__+".json"
+        filename = cls.__name__ +".json"
         if list_objs is None:
             list_objs = []
         with open(filename, "w", encoding="utf8") as myFile:
@@ -52,6 +52,10 @@ class Base:
     @staticmethod
     def from_json_string(json_string):
         """returns the string from JSON"""
+        if json_string is None:
+            json_string = "[]"
+        if len(json_string) == 0:
+            json_string = "[]"
         return json.loads(json_string)
 
     @classmethod
