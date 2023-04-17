@@ -15,6 +15,7 @@ class Square(Rectangle):
     def __init__(self, size, x=0, y=0, id=None):
         """initializes the attributes"""
         super().__init__(size, size, x, y, id)
+        self.size = size
 
     def __str__(self):
         """returns a string representation in a format"""
@@ -35,14 +36,9 @@ class Square(Rectangle):
 
     def update(self, *args, **kwargs):
         if args:
-            if len(args) >= 1:
-                self.id = args[0]
-            if len(args) >= 2:
-                self.width = args[1]
-            if len(args) >= 3:
-                self.x = args[2]
-            if len(args) >= 4:
-                self.y = args[3]
+            attrs = ['id', 'size', 'x', 'y']
+            for i, arg in enumerate(args):
+                setattr(self, attrs[i], arg)
         elif kwargs:
             for key, value in kwargs.items():
                 setattr(self, key, value)
