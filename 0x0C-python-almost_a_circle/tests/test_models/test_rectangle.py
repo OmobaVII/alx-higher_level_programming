@@ -7,10 +7,7 @@ import pep8
 import os
 import unittest
 from io import StringIO
-import io
 from contextlib import redirect_stdout
-from unittest.mock import patch
-from models.base import Base
 from models import rectangle
 Rectangle = rectangle.Rectangle
 

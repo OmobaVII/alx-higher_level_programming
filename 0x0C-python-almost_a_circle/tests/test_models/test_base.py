@@ -13,7 +13,6 @@ from models import square
 Base = base.Base
 Rectangle = rectangle.Rectangle
 Square = square.Square
-"""imports needed for the tests"""
 
 
 class Testpep8(unittest.TestCase):

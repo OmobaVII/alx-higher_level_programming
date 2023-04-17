@@ -1,11 +1,13 @@
 #!/usr/bin/python3
 """
-this is the `rectangle` module 
+this is the `rectangle` module
 
 this module inherits from the base module
 it inherits Base
 """
-from base import Base
+
+
+from models.base import Base
 
 
 class Rectangle(Base):

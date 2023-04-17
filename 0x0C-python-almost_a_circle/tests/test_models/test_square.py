@@ -5,11 +5,9 @@ Unittest for Square
 
 
 import pep8
-import os
 import unittest
 from io import StringIO
 from contextlib import redirect_stdout
-from models import rectangle
 from models import square
 Square = square.Square
 
