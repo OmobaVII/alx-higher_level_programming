@@ -1,17 +1,5 @@
 #!/usr/bin/python3
-"""
-This is the module "models/rectangle"
-Module contains class Rectangle
-
-it inherits Base in the `base` module
-this module defines a class Rectangle
-Inherits  class BAse
-Initializes superclass id
-Contains private attributes, widht, height, x and y
-Displays method uses #
-Str method uses [Rectangle] (id) x/y - width/height
-Updates attributes with args
-Returns a dictionary representation of attributes"""
+"""Defines a rectangle class"""
 from models.base import Base
 
 
