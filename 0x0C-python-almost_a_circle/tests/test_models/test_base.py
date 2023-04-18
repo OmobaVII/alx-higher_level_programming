@@ -96,7 +96,7 @@ class TestBase(unittest.TestCase):
             self.assertEqual(json.dumps([r1.to_dictionary(),
                                         r2.to_dictionary()]),
                              myFile.read())
-    
+
     def test_save_to_file_square(self):
         """test the save_to_file"""
         s1 = Square(10, 5)
@@ -115,6 +115,10 @@ class TestBase(unittest.TestCase):
 
         Rectangle.save_to_file(None)
         with open("Rectangle.json", "r") as myFile:
+            self.assertTrue('[]', myFile.read())
+
+        Square.save_to_file([])
+        with open("Square.json", "r") as myFile:
             self.assertTrue('[]', myFile.read())
 
     def test_from_json_string(self):
