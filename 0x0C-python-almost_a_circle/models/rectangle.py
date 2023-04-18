@@ -124,6 +124,7 @@ class Rectangle(Base):
         return s
 
     def update(self, *args, **kwargs):
+        """defines the update method"""
         if args:
             attrs = ['id', 'width', 'height', 'x', 'y']
             for i, arg in enumerate(args):
@@ -133,6 +134,7 @@ class Rectangle(Base):
                 setattr(self, key, value)
 
     def to_dictionary(self):
+        """returns a dictionary representation of rectangle"""
         s = {}
         s['id'] = self.id
         s['width'] = self.__width
