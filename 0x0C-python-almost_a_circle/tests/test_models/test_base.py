@@ -123,6 +123,10 @@ class TestBase(unittest.TestCase):
         with open("Square.json", "r") as myFile:
             self.assertTrue('[]', myFile.read())
 
+        Square.save_to_file(None)
+        with open("Square.json", "r") as myFile:
+            self.assertTrue('[]', myFile.read())
+
     def test_from_json_string(self):
         """Test for the from_json_string"""
         jstr = '[{"id": 5, "width": 3, "height": 5, "x": 1, "y": 3},\
