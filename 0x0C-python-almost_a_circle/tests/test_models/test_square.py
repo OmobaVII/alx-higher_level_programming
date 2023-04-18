@@ -65,7 +65,9 @@ class TestSquare(unittest.TestCase):
         """test too many and too few"""
         with self.assertRaises(TypeError):
             Square(8, 2, 4, 2, 1)
+        with self.assertRaises(TypeError):
             Square()
+        with self.assertRaises(TypeError):
             Square(None)
 
     def test_Square(self):
