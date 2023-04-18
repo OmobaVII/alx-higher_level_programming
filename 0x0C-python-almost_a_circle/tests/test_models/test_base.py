@@ -117,6 +117,8 @@ class TestBase(unittest.TestCase):
         with open("Rectangle.json", "r") as myFile:
             self.assertTrue('[]', myFile.read())
 
+    def test_save_to_file_square(self):
+        """test the save to file with none"""
         Square.save_to_file([])
         with open("Square.json", "r") as myFile:
             self.assertTrue('[]', myFile.read())
