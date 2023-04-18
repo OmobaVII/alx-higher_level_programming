@@ -96,6 +96,13 @@ class TestBase(unittest.TestCase):
             self.assertEqual(json.dumps([r1.to_dictionary(),
                                         r2.to_dictionary()]),
                              myFile.read())
+        s1 = Square(10, 5)
+        s2 = Square(2, 4)
+        Square.save_to_file([s1, s2])
+        with open("Square.json", "r") as myFile:
+            self.assertEqual(json.dumps([s1.to_dictionary(),
+                                        s2.to_dictionary()]),
+                             myFile.read())
 
     def test_save_to_file2(self):
         """test the save_to_file with none and empty"""
