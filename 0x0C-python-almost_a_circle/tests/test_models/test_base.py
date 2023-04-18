@@ -96,6 +96,9 @@ class TestBase(unittest.TestCase):
             self.assertEqual(json.dumps([r1.to_dictionary(),
                                         r2.to_dictionary()]),
                              myFile.read())
+    
+    def test_save_to_file_square(self):
+        """test the save_to_file"""
         s1 = Square(10, 5)
         s2 = Square(2, 4)
         Square.save_to_file([s1, s2])
