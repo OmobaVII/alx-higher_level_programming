@@ -1,7 +1,7 @@
 #!/usr/bin/node
 // Prints My number: first argument converted in integer
 
-let { argv } = require('process');
+const { argv } = require('process');
 if (isNaN(parseInt(argv[2]))) {
   console.log('Not a number');
 } else {
