@@ -18,7 +18,11 @@ if __name__ == "__main__":
                          passwd=argv[2],
                          database=argv[3])
     cur = db.cursor()
-    cur.execute("SELECT * FROM states ORDER BY id")
+    query = """SELECT *
+             FROM states
+             WHERE name like "{:s}"
+             ORDER BY id""".format(argv[4])
+    cur.execute(query)
     for state in cur.fetchall():
         if state[1] == argv[4]:
             print(state)
