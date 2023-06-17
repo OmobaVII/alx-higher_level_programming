@@ -26,9 +26,11 @@ if __name__ == "__main__":
                ORDER BY cities.id"""
 
     cur.execute(query, (argv[4], ))
+    cities = []
     for city in cur.fetchall():
-        print(city[0], end=", ")
+        cities.append(city[0])
 
-    print()
+    print(", ".join(cities))
+
     cur.close()
     db.close()
