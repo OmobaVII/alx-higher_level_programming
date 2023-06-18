@@ -28,7 +28,7 @@ if __name__ == "__main__":
     # ALSO WORKS
     # db = session.query(City).order_by(City.id)
     # for data in db:
-        # print("{:d}: {:s} -> {:s}".format(data.id, data.name, data.state.name))
+    # print("{:d}: {:s} -> {:s}".format(data.id, data.name, data.state.name))
     # THIS SHOWS THE RELATIONSHIP IS TWO WAY EITHER CAN CALL ON THE OTHER
 
     session.close()
