@@ -14,10 +14,18 @@ def find_peak(list_of_integers):
     if len(list_of_integers) < 1:
         return None
 
-    peak = list_of_integers[0]
+    ilist = list_of_integers
+    end = len(ilist) - 1
+    middle = end // 2
 
-    for num in list_of_integers:
-        if num > peak:
-            peak = num
+    if ilist[0] >= ilist[1]:
+        return ilist[0]
+    if ilist[end] >= ilist[end - 1]:
+        return ilist[end]
 
-    return peak
+    if ilist[middle] < ilist[middle - 1]:
+        return find_peak(ilist[:middle + 1])
+    elif ilist[middle] < ilist[middle + 1]:
+        return find_peak(ilist[middle:])
+    else:
+        return ilist[middle]
