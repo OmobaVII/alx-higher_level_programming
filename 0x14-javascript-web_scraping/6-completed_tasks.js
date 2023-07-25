@@ -6,8 +6,8 @@ const request = require('request');
 
 request(argv[2], function (err, response, body) {
   if (err) {
-    console.log(err);
-  } else {
+    console.error(err);
+  } else if (response.statusCode === 200) {
     const output = {};
     const data = JSON.parse(body);
     for (const a in data) {
@@ -20,5 +20,7 @@ request(argv[2], function (err, response, body) {
       }
     }
     console.log(output);
+  } else {
+    console.log('Error code:', response.statusCode);
   }
 });
