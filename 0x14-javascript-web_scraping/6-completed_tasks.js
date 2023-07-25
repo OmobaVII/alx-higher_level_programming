@@ -1,5 +1,4 @@
 #!/usr/bin/node
-// Computes the number of tasks completed by user id
 
 const url = process.argv[2];
 const request = require('request');
@@ -10,7 +9,7 @@ request(url, function (err, response, body) {
   } else if (response.statusCode === 200) {
     const dic = {};
     const tasks = JSON.parse(body);
-    for (const task in tasks) {
+    for (const task of tasks) {
       if (task.completed) {
         if (dic[task.userId] === undefined) {
           dic[tasks.userId] = 1;
