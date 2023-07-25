@@ -8,15 +8,15 @@ request(argv[2], function (err, response, body) {
   if (err) {
     console.error(err);
   } else {
+    const output = {};
     const data = JSON.parse(body);
-    output = {}
-    for (let a in data) {
-      if (data[a].completed === true) {
+    for (const a in data) {
+      if (data[a].completed) {
         if (output[data[a].userId] === undefined) {
           output[data[a].userId] = 1;
-	} else {
+        } else {
           output[data[a].userId] += 1;
-	}
+        }
       }
     }
     console.log(output);
