@@ -14,7 +14,7 @@ request(argv[2], function (err, response, body) {
     for (const a in data) {
       const actors = data[a].characters;
       for (const b in actors) {
-        if (actors[b].includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+        if (actors[b].includes('18')) {
           number += 1;
         }
       }
