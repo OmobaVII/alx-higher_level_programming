@@ -12,9 +12,9 @@ request(url, function (err, response, body) {
     for (const task of tasks) {
       if (task.completed) {
         if (dic[task.userId] === undefined) {
-          dic[tasks.userId] = 1;
+          dic[task.userId] = 1;
         } else {
-          dic[tasks.userId]++;
+          dic[task.userId]++;
         }
       }
     }
