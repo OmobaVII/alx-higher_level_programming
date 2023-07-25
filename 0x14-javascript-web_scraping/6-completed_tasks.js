@@ -12,7 +12,7 @@ request(argv[2], function (err, response, body) {
     const result = JSON.parse(body);
     for (const a in result) {
       const data = result[a]
-      if (data.completed) {
+      if (data.completed === 'true') {
         if (output[data.userId] === undefined) {
           output[data.userId] = 1;
         } else {
