@@ -6,7 +6,7 @@ const request = require('request');
 
 request(argv[2], function (err, response, body) {
   if (err) {
-    console.error(err);
+    console.log(err);
   } else {
     const output = {};
     const data = JSON.parse(body);
