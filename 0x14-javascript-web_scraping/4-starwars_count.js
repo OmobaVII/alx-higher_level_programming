@@ -10,9 +10,13 @@ request(argv[2], function (err, response, body) {
   } else {
     const data = JSON.parse(body).results;
     let number = 0;
-    for (const movie of data) {
-      if (movie.characters.includes('https://swapi-api.alx-tools.com/api/people/18/')) {
-        number += 1;
+
+    for (const a in data) {
+      const actors = data[a].characters;
+      for (const b in actors) {
+        if (actors[b].includes('https://swapi-api.alx-tools.com/api/people/18/')) {
+          number += 1;
+        }
       }
     }
     console.log(number);
