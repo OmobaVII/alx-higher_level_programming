@@ -1,25 +1,32 @@
 #!/usr/bin/node
 
-const url = process.argv[2];
 const request = require('request');
 
-request(url, function (err, response, body) {
-  if (err) {
-    console.log(err);
-  } else if (response.statusCode === 200) {
-    const dic = {};
-    const tasks = JSON.parse(body);
-    for (const task of tasks) {
-      if (task.completed) {
-        if (dic[task.userId] === undefined) {
-          dic[task.userId] = 1;
-        } else {
-          dic[task.userId]++;
-        }
-      }
+const apiUrl = process.argv[2];
+
+function countCompletedTasksByUserId (todos) {
+  const completedTasksByUserId = {};
+
+  for (const todo of todos) {
+    if (todo.completed) {
+      const userId = todo.userId.toString();
+      completedTasksByUserId[userId] = (completedTasksByUserId[userId] || 0) + 1;
     }
-    console.log(dic);
+  }
+  return completedTasksByUserId;
+}
+request(apiUrl, function (error, response, body) {
+  if (error) {
+    console.error('Error fetching data:', error);
+  } else if (response.statusCode !== 200) {
+    console.error('API request failed:', response.statusCode);
   } else {
-    console.log('Error code: ' + response.statusCode);
+    try {
+      const todos = JSON.parse(body);
+      const completedTasksByUserId = countCompletedTasksByUserId(todos);
+      console.log(completedTasksByUserId);
+    } catch (parseError) {
+      console.error('Error parsing JSON:', parseError);
+    }
   }
 });
