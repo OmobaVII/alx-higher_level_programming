@@ -9,17 +9,13 @@ request(url, function (err, response, body) {
   } else if (response.statusCode === 200) {
     const dic = {};
     const tasks = JSON.parse(body);
-    for (const task of tasks) {
-      if (task.completed) {
-        if (dic[task.userId] === undefined) {
-          dic[task.userId] = 1;
-        } else {
-          dic[task.userId]++;
-        }
+    tasks.forEach((task) => {
+      if (task.completed && dic[task.userId] === undefined) {
+        dic[task.userId] = 1;
+      } else if (task.completed) {
+        dic[task.userId]++;
       }
-    }
+    });
     console.log(dic);
-  } else {
-    console.log('Error code: ' + response.statusCode);
   }
 });
